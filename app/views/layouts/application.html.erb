@@ -11,8 +11,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="wrapper">
+  <div id="wrapper-holder">
+    <%= render :partial => 'layouts/header' %>
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
+</div>
 
-<%= yield %>
+<%= render :partial => 'layouts/footer' %>
 
 </body>
 </html>

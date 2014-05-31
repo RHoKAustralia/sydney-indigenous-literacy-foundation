@@ -63,7 +63,8 @@ class ExcitementPagesController < ApplicationController
   end
 
   def email_list
-    
+    client = ILF::RestForceClient.new
+    @contacts = client.donors_since(Date.today - 3.month)
   end
 
   def send_email

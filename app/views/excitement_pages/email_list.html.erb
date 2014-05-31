@@ -10,6 +10,11 @@
 <div id="send_email_section">
   <%= form_tag(send_email_excitement_page_path, :method => "post") do %>
       <div>
+        <%= @contacts.length %> people to be emailed
+        <% @contacts.each do |contact| %>
+          <div><%= contact.Email %> - <%= contact.Last_Donation_Date__c %></div>
+        <% end %>
+
         <div>
           <%= label_tag(:email_address, "Email Address") %>
           <%= text_field_tag(:email_address) %>
