@@ -3,7 +3,35 @@
   <%= @community.Name %>
 </p>
 
-<div id="map"></div>
+<% if @community.Geolocation__latitude__s && @community.Geolocation__longitude__s %>
+	<div id="map"></div>
+	
+	<script type="text/javascript">
+	  function initialize() {
+
+	    var mapOptions = {
+	      width: '400px',
+	      height: '300px',
+	      center: new google.maps.LatLng(<%= @community.Geolocation__latitude__s %>,<%= @community.Geolocation__longitude__s %>),
+	      zoom: 6
+	    };
+	    var map = new google.maps.Map(document.getElementById("map"),
+	        mapOptions);
+	    var infowindow = new google.maps.InfoWindow({
+	        content: "<%= @community.Name %>"
+	    });
+	    var marker = new google.maps.Marker({
+	          position: new google.maps.LatLng(<%= @community.Geolocation__c.latitude %>,<%= @community.Geolocation__c.longitude %>),
+	          map: map,
+	          title: "<%= @community.Name %>"
+	      });
+	    google.maps.event.addListener(marker, 'click', function() {
+	      infowindow.open(map,marker);
+	    });
+	  }
+	  google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+<% end %>
 
 Received <%= @book_orders.length %> book orders so far
 <ul>
@@ -11,30 +39,3 @@ Received <%= @book_orders.length %> book orders so far
 		<li><%= book_order.Account.Name %> - <%= book_order.CloseDate %></li>
 	<% end %>
 </ul>
-
-<script type="text/javascript">
-  function initialize() {
-
-    var mapOptions = {
-      width: '400px',
-      height: '300px',
-      center: new google.maps.LatLng(<%= @community.Geolocation__latitude__s %>,<%= @community.Geolocation__longitude__s %>),
-      zoom: 6
-    };
-    var map = new google.maps.Map(document.getElementById("map"),
-        mapOptions);
-    var infowindow = new google.maps.InfoWindow({
-        content: "<%= @community.Name %>"
-    });
-    var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(<%= @community.Geolocation__c.latitude %>,<%= @community.Geolocation__c.longitude %>),
-          map: map,
-          title: "<%= @community.Name %>"
-      });
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.open(map,marker);
-    });
-  }
-  google.maps.event.addDomListener(window, 'load', initialize);
-
-</script>
