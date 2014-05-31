@@ -1,11 +1,13 @@
-<%= link_to 'Back', dashboard_path %>
+<%= link_to 'Back', dashboard_path, { :class => "btn btn-default" } %>
 
 <p>
   <strong>Community:</strong>
   <%= @community.Name %>
 </p>
 
-<% if @community.Geolocation__latitude__s && @community.Geolocation__longitude__s %>
+<div id="demographics" style="width:100%">
+
+<% unless @community.Geolocation__c.latitude.nil? || @community.Geolocation__c.longitude.nil? %>
 	<div id="map"></div>
 	
 	<script type="text/javascript">
@@ -14,7 +16,7 @@
 	    var mapOptions = {
 	      width: '400px',
 	      height: '300px',
-	      center: new google.maps.LatLng(<%= @community.Geolocation__latitude__s %>,<%= @community.Geolocation__longitude__s %>),
+	      center: new google.maps.LatLng(<%= @community.Geolocation__c.latitude %>,<%= @community.Geolocation__c.longitude %>),
 	      zoom: 6
 	    };
 	    var map = new google.maps.Map(document.getElementById("map"),
@@ -35,9 +37,13 @@
 	</script>
 <% end %>
 
-Received <%= @book_orders.length %> book orders so far
-<ul>
-	<% @book_orders.each do |book_order| %>
-		<li><%= book_order.Account.Name %> - <%= book_order.CloseDate %></li>
-	<% end %>
-</ul>
+	<div id="communities">
+
+		Received <%= @book_orders.length %> book orders so far
+		<ul>
+			<% @book_orders.each do |book_order| %>
+				<li><%= book_order.Account.Name %> - <%= book_order.CloseDate %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>

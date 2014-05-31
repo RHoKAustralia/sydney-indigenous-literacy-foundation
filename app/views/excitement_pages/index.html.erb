@@ -1,4 +1,4 @@
-<h1>Listing excitement_pages</h1>
+<h1>Listing Excitement Pages</h1>
 
 <table>
   <thead>
@@ -16,10 +16,10 @@
       <tr>
         <td><%= excitement_page.title %></td>
         <td><%= excitement_page.text %></td>
-        <td><%= link_to 'Show', excitement_page %></td>
-        <td><%= link_to 'Edit', edit_excitement_page_path(excitement_page) %></td>
-        <td><%= link_to 'Email', email_list_excitement_page_path(excitement_page) %></td>
-        <td><%= link_to 'Destroy', excitement_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', excitement_page, { :class => "btn btn-default" } %></td>
+        <td><%= link_to 'Edit', edit_excitement_page_path(excitement_page), { :class => "btn btn-default" } %></td>
+        <td><%= link_to 'Email', email_list_excitement_page_path(excitement_page), { :class => "btn btn-default" } %></td>
+        <td><%= link_to 'Destroy', excitement_page, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Excitement page', new_excitement_page_path %>
+<%= link_to 'New Excitement Page', new_excitement_page_path, { :class => "btn btn-default" } %>

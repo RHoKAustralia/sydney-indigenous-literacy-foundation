@@ -19,5 +19,5 @@
   <strong>Testimonial image:</strong>
 <%= image_tag show_image_excitement_page_url(@excitement_page) ,:size => '260x180'%>
 <p>
-<%= link_to 'Edit', edit_excitement_page_path(@excitement_page) %> |
-<%= link_to 'Back', excitement_pages_path %>
+<%= link_to 'Edit', edit_excitement_page_path(@excitement_page), { :class => "btn btn-default" } %> |
+<%= link_to 'Back', excitement_pages_path, { :class => "btn btn-default" } %>
