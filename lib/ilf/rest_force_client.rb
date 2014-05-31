@@ -37,5 +37,14 @@ module ILF
         WHERE o.Remote_Community__c = '#{community.Id}'
         ORDER BY o.CloseDate DESC")
     end
+
+    def donors_since(date)
+      @client.query("SELECT Email, Last_Donation_Date__c
+        FROM Contact
+        WHERE Email != null
+        AND Last_Donation_Date__c > #{date.strftime("%Y-%m-%d")}
+        ORDER BY Last_Donation_Date__c DESC
+        LIMIT 50")
+    end
   end
 end
