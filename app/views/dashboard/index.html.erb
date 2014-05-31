@@ -1,18 +1,16 @@
 <div id="donations">
-	Donations So Far This Year <%= @donations_ytd %>
+	Donations So Far This Year <%= @donations_ytd %><br/>
 	Donations This Time Last Year <%= @donations_ytd_lastyear %>
 </div>
 
-<div id="map"/>
-
-<div id="community_list">
+<div id="map"></div>
+<div>
   <ul>
     <% @communities.each do |community| %>
-    	<li><%= community.Name %> <%= community.Geolocation__c %> <%= community.Geolocation__c.latitude if ! community.Geolocation__c.nil? %> <%= community.Geolocation__c.longitude if ! community.Geolocation__c.nil? %> </li>
+      <li><%= community.Name %> <%= community.Geolocation__c %> <%= community.Geolocation__c.latitude if ! community.Geolocation__c.nil? %> <%= community.Geolocation__c.longitude if ! community.Geolocation__c.nil? %> </li>
     <% end %>
   </ul>
 </div>
-
 <script type="text/javascript">
   function initialize() {
 
