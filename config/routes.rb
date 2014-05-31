@@ -5,6 +5,7 @@ IndigenousLiteracyFoundation::Application.routes.draw do
     member do
       get 'email_list'
       post 'send_email'
+      get 'show_image'
     end
   end
 

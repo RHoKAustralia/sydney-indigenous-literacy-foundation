@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531025630) do
+ActiveRecord::Schema.define(version: 20140531054620) do
 
   create_table "excitement_pages", force: true do |t|
     t.string   "title"
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "testimonial_text"
   end
+
+  create_table "photos", force: true do |t|
+    t.binary   "raw_data"
+    t.integer  "excitement_page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["excitement_page_id"], name: "index_photos_on_excitement_page_id"
 
 end

@@ -1,5 +1,5 @@
 class ExcitementPagesController < ApplicationController
-  before_action :set_excitement_page, only: [:show, :edit, :update, :destroy,:email_list,:send_email]
+  before_action :set_excitement_page, only: [:show, :edit, :update, :destroy,:email_list,:send_email,:show_image]
 
   # GET /excitement_pages
   # GET /excitement_pages.json
@@ -21,13 +21,24 @@ class ExcitementPagesController < ApplicationController
   def edit
   end
 
+  def show_image
+    puts "params #{params}"
+    photo = @excitement_page.photo
+    puts "HERERRERERRERERER************************"
+    send_data photo.raw_data, :type => 'image/png',:disposition => 'inline'
+  end
+
   # POST /excitement_pages
   # POST /excitement_pages.json
   def create
+
+    puts "**************************************   #{params}"
     @excitement_page = ExcitementPage.new(excitement_page_params)
+    @excitement_page.photo = Photo.new
+    @excitement_page.photo.raw_data = params[:photo].read
 
     respond_to do |format|
-      if @excitement_page.save
+      if @excitement_page.save && @excitement_page.photo.save!
         format.html { redirect_to @excitement_page, notice: 'Excitement page was successfully created.' }
         format.json { render action: 'show', status: :created, location: @excitement_page }
       else
