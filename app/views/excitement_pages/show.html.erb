@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @excitement_page.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @excitement_page.text %>
+</p>
+
+<%= link_to 'Edit', edit_excitement_page_path(@excitement_page) %> |
+<%= link_to 'Back', excitement_pages_path %>

@@ -1,0 +1,25 @@
+<%= form_for(@excitement_page) do |f| %>
+  <% if @excitement_page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@excitement_page.errors.count, "error") %> prohibited this excitement_page from being saved:</h2>
+
+      <ul>
+      <% @excitement_page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

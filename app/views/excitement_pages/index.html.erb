@@ -1,0 +1,29 @@
+<h1>Listing excitement_pages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @excitement_pages.each do |excitement_page| %>
+      <tr>
+        <td><%= excitement_page.title %></td>
+        <td><%= excitement_page.text %></td>
+        <td><%= link_to 'Show', excitement_page %></td>
+        <td><%= link_to 'Edit', edit_excitement_page_path(excitement_page) %></td>
+        <td><%= link_to 'Destroy', excitement_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Excitement page', new_excitement_page_path %>
