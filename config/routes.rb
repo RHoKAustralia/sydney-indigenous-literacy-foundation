@@ -1,4 +1,6 @@
 IndigenousLiteracyFoundation::Application.routes.draw do
+
+  root :to => "excitement_pages#index"
   resources :excitement_pages
 
   # The priority is based upon order of creation: first created -> highest priority.
