@@ -48,6 +48,8 @@
       gmarkers["<%= index %>"] = marker_<%= index %>;
       google.maps.event.addListener(marker_<%= index %>, 'click', function() {
         infowindow_<%= index %>.open(map,marker_<%= index %>);
+        map.setCenter(marker_<%= index %>.getPosition());
+        map.setZoom(8);
       });
       <% end %>
     <% end %>
