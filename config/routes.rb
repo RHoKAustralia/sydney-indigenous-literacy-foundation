@@ -4,6 +4,7 @@ IndigenousLiteracyFoundation::Application.routes.draw do
   resources :excitement_pages do
     member do
       get 'email_list'
+      post 'send_email'
     end
   end
 

@@ -1,5 +1,5 @@
 class ExcitementPagesController < ApplicationController
-  before_action :set_excitement_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_excitement_page, only: [:show, :edit, :update, :destroy,:email_list,:send_email]
 
   # GET /excitement_pages
   # GET /excitement_pages.json
@@ -49,6 +49,16 @@ class ExcitementPagesController < ApplicationController
         format.json { render json: @excitement_page.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def email_list
+    
+  end
+
+  def send_email
+    puts "**************   got here  #{params}"
+    flash[:notice] = "The email has been sent"
+    redirect_to email_list_excitement_page_path(@excitement_page)
   end
 
   # DELETE /excitement_pages/1
