@@ -1,4 +1,6 @@
 class Photo < ActiveRecord::Base
-  belongs_to :excitement_page
+  belongs_to :imageable, polymorphic: true
+
+  
 
 end

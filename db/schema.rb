@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531061055) do
+ActiveRecord::Schema.define(version: 20140531075749) do
 
   create_table "book_orders", force: true do |t|
     t.datetime "created_at"
@@ -39,8 +39,20 @@ ActiveRecord::Schema.define(version: 20140531061055) do
     t.integer  "excitement_page_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
   end
 
   add_index "photos", ["excitement_page_id"], name: "index_photos_on_excitement_page_id"
+
+  create_table "testimonials", force: true do |t|
+    t.string   "photo_caption"
+    t.string   "text_block"
+    t.string   "speaker_name"
+    t.string   "speaker_role"
+    t.integer  "excitement_space_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
