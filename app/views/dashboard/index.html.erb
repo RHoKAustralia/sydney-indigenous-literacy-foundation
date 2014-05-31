@@ -1,7 +1,15 @@
 <div id="donations">
-	Donations So Far This Year <%= @donations_ytd %><br/>
-	Donations This Time Last Year <%= @donations_ytd_lastyear %><br/>
-  
+	<ul class="gauge">
+		<li>
+			<strong><%= number_to_currency(@donations_ytd) %></strong>
+			<span>Year to date donations</span>
+		</li>
+		<li>
+			<strong><%= number_to_currency(@donations_ytd_lastyear) %></strong>
+			<span>Donated last year at this time</span>
+		</li>
+	</ul>
+
   Donations So Far This Year:
   <div class='outer'>
    <div class='inner' id="inner1"></div>
