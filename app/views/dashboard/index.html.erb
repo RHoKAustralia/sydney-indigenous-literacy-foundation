@@ -14,17 +14,19 @@
 
 </div>
 
-<div id="map"></div>
-<div>
-  <ul>
-    <% @communities.each do |community| %>
-      <li><%= community.Id %> <%= community.Name %> <%= community.Geolocation__c %> </li>
-    <% end %>
-  </ul>
+<div id="demographics" style="width:100%">
+  <div id="map"></div>
+  <div id="communities">
+    <ul>
+      <% @communities.each_with_index do |community, index| %>
+        <li><%= link_to community.Name, 'javascript:void(0);', :onclick=>"infoOpen('#{index}');" %> <%= community.Id %> Location: <%= community.Geolocation__c.latitude if ! community.Geolocation__c.nil? %> <%= community.Geolocation__c.longitude if ! community.Geolocation__c.nil? %> </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 <script type="text/javascript">
+  var gmarkers = [];
   function initialize() {
-
     var mapOptions = {
       width: '400px',
       height: '300px',
@@ -43,6 +45,7 @@
             map: map,
             title: "<%= community.Name %>"
         });
+      gmarkers["<%= index %>"] = marker_<%= index %>;
       google.maps.event.addListener(marker_<%= index %>, 'click', function() {
         infowindow_<%= index %>.open(map,marker_<%= index %>);
       });
@@ -72,6 +75,10 @@
       }
     );//end animate
 
+  function infoOpen(marker)
+  {
+      google.maps.event.trigger(gmarkers[marker],'click');
+  }
 </script>
 
 <style type="text/css">
