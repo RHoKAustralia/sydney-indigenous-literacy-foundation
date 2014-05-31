@@ -16,5 +16,15 @@ module ILF
         ORDER BY Name
       ")
     end
+
+    def donations(from, to)
+      # FILTER OUT NULL GEOLOCATIONS - will not show any communities that are above the equator !
+      @client.query("SELECT SUM(Amount)
+        FROM Opportunity
+        WHERE StageName = 'Closed Won' 
+        AND CloseDate > #{from.strftime("%Y-%m-%d")}
+        AND CloseDate < #{to.strftime("%Y-%m-%d")}
+      ").first.expr0
+    end
   end
 end
