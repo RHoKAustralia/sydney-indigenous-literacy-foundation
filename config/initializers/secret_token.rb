@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-IndigenousLiteracyFoundation::Application.config.secret_key_base = 'f7574a31a76eb0f20e2931b7b9a72be31efa8a4bdd4cb1e762ae9e3c5b0e46c7526ad09805b093bd133e07e6c413c79f01d661c13df7a4b97323e6b276fbf120'
+IndigenousLiteracyFoundation::Application.config.secret_key_base = 'bc00fe4c3f20de8793b55ffd836be115707c1d674de2e631ab6191b2511b0eca8afa769624310f0c54f213eea1242828f37a75076b56aca35fccf9dcb5b40c0a'
