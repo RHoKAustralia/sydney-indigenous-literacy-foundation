@@ -57,6 +57,7 @@ class ExcitementPagesController < ApplicationController
 
   def send_email
     puts "**************   got here  #{params}"
+    ExcitementPageMailer.sample_mail(params[:email_address],@excitement_page).deliver
     flash[:notice] = "The email has been sent"
     redirect_to email_list_excitement_page_path(@excitement_page)
   end
