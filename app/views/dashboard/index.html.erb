@@ -1,16 +1,18 @@
 
-<!-- <div id="map"></div> -->
-
-<ul>
-  <% @communities.each do |community| %>
-  	<li><%= community.Name %> <%= community.Geolocation__c %> <%= community.Geolocation__c.latitude if ! community.Geolocation__c.nil? %> <%= community.Geolocation__c.longitude if ! community.Geolocation__c.nil? %> </li>
-  <% end %>
-</ul>
-
+<div id="map"></div>
+<div>
+  <ul>
+    <% @communities.each do |community| %>
+    	<li><%= community.Name %> <%= community.Geolocation__c %> <%= community.Geolocation__c.latitude if ! community.Geolocation__c.nil? %> <%= community.Geolocation__c.longitude if ! community.Geolocation__c.nil? %> </li>
+    <% end %>
+  </ul>
+</div>
 <script type="text/javascript">
   function initialize() {
 
     var mapOptions = {
+      width: '400px',
+      height: '300px',
       center: new google.maps.LatLng(-24.994167,134.866944),
       zoom: 4
     };
