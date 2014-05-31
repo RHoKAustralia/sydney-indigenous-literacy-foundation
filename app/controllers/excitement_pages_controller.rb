@@ -35,7 +35,7 @@ class ExcitementPagesController < ApplicationController
     puts "**************************************   #{params}"
     @excitement_page = ExcitementPage.new(excitement_page_params)
     @excitement_page.photo = Photo.new
-    @excitement_page.photo.raw_data = params[:photo].read
+    @excitement_page.photo.raw_data = params[:photo].read if params[:photo]
 
     respond_to do |format|
       if @excitement_page.save && @excitement_page.photo.save!
