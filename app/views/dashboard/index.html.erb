@@ -1,9 +1,24 @@
+<div id="donations">
+	Donations So Far This Year <%= @donations_ytd %><br/>
+	Donations This Time Last Year <%= @donations_ytd_lastyear %><br/>
+  
+  Donations So Far This Year:
+  <div class='outer'>
+   <div class='inner' id="inner1"></div>
+  </div>
+
+  Donations This Time Last Year:
+  <div class='outer'>
+   <div class='inner' id="inner2"></div>
+  </div>
+
+</div>
 
 <div id="map"></div>
 <div>
   <ul>
     <% @communities.each do |community| %>
-    	<li><%= community.Name %> <%= community.Geolocation__c %> <%= community.Geolocation__c.latitude if ! community.Geolocation__c.nil? %> <%= community.Geolocation__c.longitude if ! community.Geolocation__c.nil? %> </li>
+      <li><%= community.Name %> <%= community.Geolocation__c %> <%= community.Geolocation__c.latitude if ! community.Geolocation__c.nil? %> <%= community.Geolocation__c.longitude if ! community.Geolocation__c.nil? %> </li>
     <% end %>
   </ul>
 </div>
@@ -35,4 +50,36 @@
     <% end %>
   }
   google.maps.event.addDomListener(window, 'load', initialize);
+
+  $('#inner1')
+    .css('width',25)
+    .css('-moz-border-radius-topright','0')
+    .css('-moz-border-radius-bottomright','0')
+    .animate(
+      {
+        width: <%= @donations_ytd/900000 * 450 %>
+      }, 
+      3000, 'linear',
+      function() {
+          $('#inner1').animate({
+            width: <%= @donations_ytd/900000 * 450 %>,
+            '-moz-border-radius-bottomright':'+=25',
+            '-moz-border-radius-topright':'+=25'
+          },
+          200,'linear',
+          function() {}
+        );//end inner animate
+      }
+    );//end animate
+
+</script>
+
+<style type="text/css">
+#inner1 {
+  width: <%= @donations_ytd/900000 * 100 %>%;
+}
+
+#inner2 {
+  width: <%= @donations_ytd_lastyear/900000 * 100 %>%;
+}
 </script>

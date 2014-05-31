@@ -2,3 +2,25 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.outer {
+  border: 1px solid black; 
+  width: 450px;
+  height: 30px;
+  -moz-border-radius: 25px;
+  margin-bottom: 20px;
+}
+
+.inner {
+  background: blue;
+  height: 100%;
+  -moz-border-radius: 25px;
+}
+
+#inner1 {
+  -moz-border-radius: 25px 25px 25px 25px;
+}
+
+#inner2 {
+  -moz-border-radius: 25px 25px 25px 25px;
+}
