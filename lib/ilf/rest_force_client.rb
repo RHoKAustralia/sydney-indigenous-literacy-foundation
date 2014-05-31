@@ -5,10 +5,8 @@ module ILF
     end
 
     def communities
-      # puts @client.describe('Account')
-
       # FILTER OUT NULL GEOLOCATIONS - will not show any communities that are above the equator !
-      accounts = @client.query("SELECT Name
+      @client.query("SELECT Name
         , Geolocation__c
         , Geolocation__latitude__s
         , Geolocation__longitude__s 
@@ -17,10 +15,6 @@ module ILF
         AND Geolocation__latitude__s < 0
         ORDER BY Name
       ")
-      accounts.each do |account|
-        puts "ACCOUNT: #{account}"
-      end
-      accounts
     end
   end
 end

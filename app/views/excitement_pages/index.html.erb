@@ -18,6 +18,7 @@
         <td><%= excitement_page.text %></td>
         <td><%= link_to 'Show', excitement_page %></td>
         <td><%= link_to 'Edit', edit_excitement_page_path(excitement_page) %></td>
+        <td><%= link_to 'Email', email_list_excitement_page_path(excitement_page) %></td>
         <td><%= link_to 'Destroy', excitement_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

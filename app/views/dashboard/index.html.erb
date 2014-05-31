@@ -1,6 +1,20 @@
 
+<div id="map"></div>
+
 <ul>
   <% @communities.each do |community| %>
   	<li><%= community.Name %> <%= community.Geolocation__c %> <%= community.Geolocation__c.latitude if ! community.Geolocation__c.nil? %> <%= community.Geolocation__c.longitude if ! community.Geolocation__c.nil? %> </li>
   <% end %>
 </ul>
+
+<script type="text/javascript">
+  function initialize() {
+    var mapOptions = {
+      center: new google.maps.LatLng(-24.994167,134.866944),
+      zoom: 4
+    };
+    var map = new google.maps.Map(document.getElementById("map"),
+        mapOptions);
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>

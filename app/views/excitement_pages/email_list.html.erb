@@ -1,0 +1,24 @@
+<h1>Email List</h1>
+
+  <div class="container">
+    <% flash.each do |key, value| %>
+        <div class="<%=key%>"><%= value %></div>
+      <% end %>
+    <%= yield %>
+  </div>
+
+<div id="send_email_section">
+  <%= form_tag(send_email_excitement_page_path, :method => "post") do %>
+      <div>
+        <div>
+          <%= label_tag(:email_address, "Email Address") %>
+          <%= text_field_tag(:email_address) %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= submit_tag("Send Emil", id: "send_emai") %>
+        </div>
+      </div>
+  <% end %>
+</div>

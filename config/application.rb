@@ -27,6 +27,6 @@ module IndigenousLiteracyFoundation
     # config.i18n.default_locale = :de
 
     # Disable the asset pipeline.
-    config.assets.enabled = false
+    config.assets.enabled = true
   end
 end

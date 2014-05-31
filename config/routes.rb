@@ -1,8 +1,14 @@
 IndigenousLiteracyFoundation::Application.routes.draw do
 
   root :to => "excitement_pages#index"
-  resources :excitement_pages
+  resources :excitement_pages do
+    member do
+      get 'email_list'
+      post 'send_email'
+    end
+  end
 
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
