@@ -1,5 +1,5 @@
 
-<div id="map"></div>
+<!-- <div id="map"></div> -->
 
 <ul>
   <% @communities.each do |community| %>
@@ -9,12 +9,22 @@
 
 <script type="text/javascript">
   function initialize() {
+
     var mapOptions = {
       center: new google.maps.LatLng(-24.994167,134.866944),
       zoom: 4
     };
     var map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
+    <% @communities.each_with_index do |community, index| %>
+      <% if ! community.Geolocation__c.nil? && ! community.Geolocation__c.nil? %>
+      var marker_<%= index %> = new google.maps.Marker({
+            position: new google.maps.LatLng(<%= community.Geolocation__c.latitude %>,<%= community.Geolocation__c.longitude %>),
+            map: map,
+            title: "Test"
+        });
+      <% end %>
+    <% end %>
   }
   google.maps.event.addDomListener(window, 'load', initialize);
 </script>
