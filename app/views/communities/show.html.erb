@@ -1,0 +1,11 @@
+<p>
+  <strong>Community:</strong>
+  <%= @community.Name %>
+</p>
+
+Received <%= @book_orders.length %> book orders so far
+<ul>
+	<% @book_orders.each do |book_order| %>
+		<li><%= book_order.Account.Name %> - <%= book_order.CloseDate %></li>
+	<% end %>
+</ul>

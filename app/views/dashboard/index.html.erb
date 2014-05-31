@@ -18,7 +18,7 @@
 <div>
   <ul>
     <% @communities.each do |community| %>
-      <li><%= community.Name %> <%= community.Geolocation__c %> <%= community.Geolocation__c.latitude if ! community.Geolocation__c.nil? %> <%= community.Geolocation__c.longitude if ! community.Geolocation__c.nil? %> </li>
+      <li><%= community.Id %> <%= community.Name %> <%= community.Geolocation__c %> </li>
     <% end %>
   </ul>
 </div>
