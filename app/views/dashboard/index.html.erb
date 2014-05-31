@@ -20,11 +20,17 @@
         mapOptions);
     <% @communities.each_with_index do |community, index| %>
       <% if ! community.Geolocation__c.nil? && ! community.Geolocation__c.nil? %>
+      var infowindow_<%= index %> = new google.maps.InfoWindow({
+          content: "<%= community.Name %>"
+      });
       var marker_<%= index %> = new google.maps.Marker({
             position: new google.maps.LatLng(<%= community.Geolocation__c.latitude %>,<%= community.Geolocation__c.longitude %>),
             map: map,
-            title: "Test"
+            title: "<%= community.Name %>"
         });
+      google.maps.event.addListener(marker_<%= index %>, 'click', function() {
+        infowindow_<%= index %>.open(map,marker_<%= index %>);
+      });
       <% end %>
     <% end %>
   }
