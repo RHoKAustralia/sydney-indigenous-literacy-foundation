@@ -17,9 +17,10 @@
 <div id="demographics" style="width:100%">
   <div id="map"></div>
   <div id="communities">
+    <%= @communities.length %> communities
     <ul>
       <% @communities.each_with_index do |community, index| %>
-        <li><%= link_to community.Name, 'javascript:void(0);', :onclick=>"infoOpen('#{index}');" %> <%= community.Id %> Location: <%= community.Geolocation__c.latitude if ! community.Geolocation__c.nil? %> <%= community.Geolocation__c.longitude if ! community.Geolocation__c.nil? %> </li>
+        <li><%= link_to community.Name, 'javascript:void(0);', :onclick=>"infoOpen('#{index}');" %></li>
       <% end %>
     </ul>
   </div>
@@ -37,20 +38,20 @@
         mapOptions);
     <% @communities.each_with_index do |community, index| %>
       <% if ! community.Geolocation__c.nil? && ! community.Geolocation__c.nil? %>
-      var infowindow_<%= index %> = new google.maps.InfoWindow({
-          content: "<%= community.Name %>"
-      });
-      var marker_<%= index %> = new google.maps.Marker({
-            position: new google.maps.LatLng(<%= community.Geolocation__c.latitude %>,<%= community.Geolocation__c.longitude %>),
-            map: map,
-            title: "<%= community.Name %>"
-        });
-      gmarkers["<%= index %>"] = marker_<%= index %>;
-      google.maps.event.addListener(marker_<%= index %>, 'click', function() {
-        infowindow_<%= index %>.open(map,marker_<%= index %>);
-        map.setCenter(marker_<%= index %>.getPosition());
-        map.setZoom(8);
-      });
+	      var infowindow_<%= index %> = new google.maps.InfoWindow({
+	          content: '<%= link_to community.Name, community_path(community.Id) %>'
+	      });
+	      var marker_<%= index %> = new google.maps.Marker({
+	            position: new google.maps.LatLng(<%= community.Geolocation__c.latitude %>,<%= community.Geolocation__c.longitude %>),
+	            map: map,
+	            title: "<%= community.Name %>"
+	        });
+	      gmarkers["<%= index %>"] = marker_<%= index %>;
+	      google.maps.event.addListener(marker_<%= index %>, 'click', function() {
+	        infowindow_<%= index %>.open(map,marker_<%= index %>);
+            map.setCenter(marker_<%= index %>.getPosition());
+            map.setZoom(8);
+	      });
       <% end %>
     <% end %>
   }
