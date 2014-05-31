@@ -1,7 +1,7 @@
 module ILF
   class RestForceClient
     def initialize
-      @client = Restforce.new
+      @client = Restforce.new cache: Rails.cache
     end
 
     def communities
