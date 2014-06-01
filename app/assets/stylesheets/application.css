@@ -17,3 +17,27 @@
 }
 
 #map, #map-canvas { height: 500px; width: 600px; float: left;}
+
+.book-list-container {
+	width: 100%;
+  height: 220px;
+  clear: both;
+}
+
+.book-container {
+  float: left;
+  margin-right: 1%;
+  overflow: hidden;
+  width: 24%;
+  height: 200px;
+}
+
+.book-image {
+  width: 100%;
+  height: 180px;
+}
+
+.book-name {
+  width: 100%;
+  height: 20px;
+}
