@@ -4,15 +4,21 @@
 <p><%= @excitement_page.intro_text %></p>
 <hr>
 
-<h2>Where we helped @community.name </h2>
-
-<p>Map goes here</p>
-<p>Community image goes here</p>
-<p> @community.description </p>
+<div id="community">
+    <h2>Where we helped @community.name </h2>
+    <section class="community-map">
+        <p>Map goes here</p>
+    </section>    
+    <section class="community-photo">
+        <%= image_tag show_image_photo_url(@excitement_page.community_section.photo) ,:size => '260x180'%>
+    </section>    
+    <p class="community-text"><%= @excitement_page.community_section.community_text%> </p>
+    </div> 
 <hr>
 
-<h2>Who you helped</h2>
+
 <div id="testimonials">
+    <h2>Who you helped</h2>
     <section class="testimonial-photo">        
         <%= image_tag show_image_photo_url(@excitement_page.testimonial.photo) ,:size => '260x180'%>
         <p><%= @excitement_page.testimonial.photo_caption %></p>
