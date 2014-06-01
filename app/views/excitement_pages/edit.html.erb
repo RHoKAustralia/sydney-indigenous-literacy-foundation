@@ -1,5 +1,9 @@
 <h1>Editing excitement_page</h1>
+<% unless @excitement_page.testimonial %>
 <td><%= link_to 'Testimonial', new_excitement_page_testimonial_path(@excitement_page), { :class => "btn btn-default" } %></td>
+<%else%>
+<td><%= link_to 'Testimonial', edit_excitement_page_testimonial_path(@excitement_page,@excitement_page.testimonial), { :class => "btn btn-default" } %></td>
+<%end%>
 
 <%= render 'form' %>
 
