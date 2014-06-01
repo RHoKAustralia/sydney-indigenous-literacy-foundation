@@ -17,6 +17,16 @@ class CommunityProfilesController < ApplicationController
 
   def update
     respond_to do |format|
+      if params[:photo]
+        photo = Photo.find_by(imageable_type: 'CommunityProfile', imageable_id: @community_profile.id)
+        if photo
+          photo.update_attributes(raw_data: params[:photo].read)
+        else
+          photo = Photo.create(raw_data: params[:photo].read, imageable_type: 'CommunityProfile', imageable_id: @community_profile.id)
+        end
+        @community_profile.photo = photo
+      end
+      
       if @community_profile.update(community_profile_params)
         format.html { redirect_to @community_profile, notice: 'Community profile was successfully updated.' }
         format.json { head :no_content }

@@ -1,53 +1,42 @@
-<p id="notice"><%= notice %></p>
-
-<p>
+<p id="notice" class="alert alert-success"><%= notice %></p>
 
 <h1><%= @excitement_page.title %></h1>
-
 <p><%= @excitement_page.intro_text %></p>
-
 <hr>
 
 <h2>Where we helped @community.name </h2>
 
-
-
-
 <p>Map goes here</p>
 <p>Community image goes here</p>
-
 <p> @community.description </p>
-
 <hr>
 
 <h2>Who you helped</h2>
-<p>
-  <strong>Testimonial image:</strong>
-<%= image_tag show_image_photo_url(@excitement_page.testimonial.photo) ,:size => '260x180'%>
-<p>
-<p><%= @excitement_page.testimonial.photo_caption %></p>
-
-<p><%= @excitement_page.testimonial.text_block %></p>
-
-<p><%= @excitement_page.testimonial.speaker_name %></p>
-<p><%= @excitement_page.testimonial.speaker_role %></p>
-
+<div id="testimonials">
+    <section class="testimonial-photo">        
+        <%= image_tag show_image_photo_url(@excitement_page.testimonial.photo) ,:size => '260x180'%>
+        <p><%= @excitement_page.testimonial.photo_caption %></p>
+    </section>
+    <section class="testimonial-text">
+        <p><%= @excitement_page.testimonial.text_block %></p>
+        <span>- <%= @excitement_page.testimonial.speaker_name %>,</span>
+        <p><%= @excitement_page.testimonial.speaker_role %></p>
+    </section>
+</div> 
 <hr>
 
 <h2>Books you helped us send</h2>
-<p>book1</p>
-<p>book1</p>
-<p>book1</p>
+<p class="excitement-books">book1</p>
+<p class="excitement-books">book1</p>
+<p class="excitement-books">book1</p>
+<hr>
 
 <h2>We couldn't do this without you</h2>
-
 <a href="https://www.indigenousliteracyfoundation.org.au/payment/donate">
     <p class="donate">DONATE</p>
 </a>
-
+<br>
+<br>
 
 <%= link_to 'Edit', edit_excitement_page_path(@excitement_page), { :class => "btn btn-default" } %> |
 <%= link_to 'Back', excitement_pages_path, { :class => "btn btn-default" } %>
-
-
-

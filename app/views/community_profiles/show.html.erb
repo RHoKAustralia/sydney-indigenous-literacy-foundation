@@ -1,6 +1,9 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" class="alert alert-success"><%= notice %></p>
 
 <h2><%= @community_profile.community.name %></h2>
+
+<%= image_tag show_image_photo_url(@community_profile.photo) ,:size => '260x180' if @community_profile.photo %>
+
 <p>
   <strong>Bio:</strong>
   <%= @community_profile.bio %>
