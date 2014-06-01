@@ -1,4 +1,4 @@
-<%= form_for([@excitement_page,@testimonial],:html => { :multipart => true }) do |f| %>
+<%= form_for([@excitement_page,@testimonial],:html => { :multipart => true ,class: "form-horizontal"}) do |f| %>
   <% if @testimonial.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@testimonial.errors.count, "error") %> prohibited this testimonial from being saved:</h2>
@@ -12,25 +12,26 @@
   <% end %>
 
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :photo %><br>
+    <%= image_tag show_image_photo_url(@testimonial.photo) ,:size => '260x180' if @testimonial.photo %>
     <%= file_field_tag :photo %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :photo_caption %><br>
     <%= f.text_field :photo_caption %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :text_block %><br>
     <%= f.text_area :text_block %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :speaker_name %><br>
     <%= f.text_field :speaker_name %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :speaker_role %><br>
     <%= f.text_field :speaker_role %>
   </div>

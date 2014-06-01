@@ -22,6 +22,7 @@
 
 
   <div class="field">
+    <%= image_tag show_image_photo_url(@community_section.photo) ,:size => '260x180' if @community_section.photo %>
     <%= f.label :photo %><br>
     <%= file_field_tag :photo %>
   </div>

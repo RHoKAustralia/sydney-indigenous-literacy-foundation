@@ -7,14 +7,26 @@
     <%= yield %>
   </div>
 
-<div id="send_email_section">
-  <%= form_tag(send_email_excitement_page_path, :method => "post") do %>
-      <div>
-        <%= @contacts.length %> people to be emailed
-        <% @contacts.each do |contact| %>
-          <div><%= contact.Email %> - <%= contact.Last_Donation_Date__c %></div>
-        <% end %>
 
+   <div><%= @contacts.length %> people to be emailed</div>
+  <table class="table">
+        <tr>
+          <th>Email</th>
+          <th>Last Donated</th>
+        </tr>
+        <% @contacts.each do |contact| %>
+          <tr>
+          <td><%= contact.Email %></td>
+          <td><%= contact.Last_Donation_Date__c %></td>
+          </tr>
+        <% end %>
+      </div>  
+   </table>
+
+
+<div id="send_email_section">
+   <div class="row">
+  <%= form_tag(send_email_excitement_page_path, :method => "post") do %>
         <div>
           <%= label_tag(:email_address, "Email Address") %>
           <%= text_field_tag(:email_address) %>
@@ -22,7 +34,7 @@
       </div>
       <div>
         <div>
-          <%= submit_tag("Send Email", id: "send_email", :class => 'btn btn-primary' ) %>
+          <%= submit_tag("Send Test Email", id: "send_email", :class => 'btn btn-primary' ) %>       
         </div>
       </div>
   <% end %>
