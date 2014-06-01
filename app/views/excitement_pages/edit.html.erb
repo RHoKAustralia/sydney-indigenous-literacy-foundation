@@ -4,6 +4,12 @@
 <%else%>
 <td><%= link_to 'Testimonial', edit_excitement_page_testimonial_path(@excitement_page,@excitement_page.testimonial), { :class => "btn btn-default" } %></td>
 <%end%>
+<% unless @excitement_page.community_section %>
+<td><%= link_to 'Community Section', new_excitement_page_community_section_path(@excitement_page), { :class => "btn btn-default" } %></td>
+<%else%>
+<td><%= link_to 'Community Section', edit_excitement_page_community_section_path(@excitement_page,@excitement_page.community_section), { :class => "btn btn-default" } %></td>
+<%end%>
+
 
 <%= render 'form' %>
 

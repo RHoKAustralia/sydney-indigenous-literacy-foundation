@@ -37,7 +37,7 @@ class ExcitementPagesController < ApplicationController
 
     respond_to do |format|
       if @excitement_page.save
-        format.html { redirect_to @excitement_page, notice: 'Excitement page was successfully created.' }
+        format.html { redirect_to edit_excitement_page_path(@excitement_page), notice: 'Excitement page was successfully created.' }
         format.json { render action: 'show', status: :created, location: @excitement_page }
       else
         format.html { render action: 'new' }
