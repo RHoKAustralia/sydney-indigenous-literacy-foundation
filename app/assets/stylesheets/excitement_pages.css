@@ -8,6 +8,15 @@ a:hover {
     text-decoration: none;
 }
 
+#map-canvas {
+
+    height:180px;
+    width:400px;
+    left: 10%;
+
+
+}
+
 
 #testimonials, #community {    
   position: relative;
