@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @community_profile.community.name %></h2>
+<p>
+  <strong>Bio:</strong>
+  <%= @community_profile.bio %>
+</p>
+
+<%= link_to 'Edit', edit_community_profile_path(@community_profile), { :class => "btn btn-default" } %> |
+<%= link_to 'Back to Communities Profiles', community_profiles_path, :class => "btn btn-default" %>

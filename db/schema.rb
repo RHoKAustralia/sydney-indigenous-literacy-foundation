@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531235027) do
+ActiveRecord::Schema.define(version: 20140531075749) do
 
   create_table "book_orders", force: true do |t|
     t.datetime "created_at"
@@ -20,18 +20,32 @@ ActiveRecord::Schema.define(version: 20140531235027) do
 
   create_table "communities", force: true do |t|
     t.string   "name"
+    t.string   "accountid"
     t.string   "latitude"
     t.string   "longitude"
+    t.integer  "community_profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "description"
   end
+
+  create_table "community_profiles", force: true do |t|
+    t.integer  "community_id"
+    t.integer  "photo_id"
+    t.string   "bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "community_profiles", ["community_id"], name: "index_community_profiles_on_community_id"
+  add_index "community_profiles", ["photo_id"], name: "index_community_profiles_on_photo_id"
 
   create_table "excitement_pages", force: true do |t|
     t.string   "title"
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "testimonial_text"
   end
 
   create_table "photos", force: true do |t|
