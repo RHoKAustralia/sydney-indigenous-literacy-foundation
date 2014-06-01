@@ -97,4 +97,16 @@
         google.maps.event.trigger(gmarkers[marker],'click');
     }
   });
+
+  // google.maps.event.addDomListener(window, 'load', initialize);
+
+  function loadScript() {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GMAPS_API_KEY'] %>&sensor=false&' +
+        'callback=initialize';
+    document.body.appendChild(script);
+  }
+
+  window.onload = loadScript;
 </script>
