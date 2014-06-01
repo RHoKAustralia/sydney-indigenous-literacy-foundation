@@ -30,12 +30,14 @@ ActiveRecord::Schema.define(version: 20140601011653) do
 
   create_table "community_profiles", force: true do |t|
     t.integer  "community_id"
+    t.integer  "photo_id"
     t.string   "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "community_profiles", ["community_id"], name: "index_community_profiles_on_community_id"
+  add_index "community_profiles", ["photo_id"], name: "index_community_profiles_on_photo_id"
 
   create_table "community_sections", force: true do |t|
     t.integer  "excitement_page_id"
@@ -55,11 +57,14 @@ ActiveRecord::Schema.define(version: 20140601011653) do
 
   create_table "photos", force: true do |t|
     t.binary   "raw_data"
+    t.integer  "excitement_page_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "imageable_id"
     t.string   "imageable_type"
   end
+
+  add_index "photos", ["excitement_page_id"], name: "index_photos_on_excitement_page_id"
 
   create_table "testimonials", force: true do |t|
     t.string   "photo_caption"
