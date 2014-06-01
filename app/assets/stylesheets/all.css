@@ -600,7 +600,7 @@ fieldset{
   margin:0 0 15px;
 }
 #content img{/*margin:0 0 30px;*/}
-#content p{
+#content, #main p{
   margin:0 0 16px;
   line-height:16px;
 }
