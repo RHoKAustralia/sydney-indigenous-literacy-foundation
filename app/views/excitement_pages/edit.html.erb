@@ -1,15 +1,23 @@
 <h1>Editing excitement_page</h1>
+
 <% unless @excitement_page.testimonial %>
-<td><%= link_to 'Testimonial', new_excitement_page_testimonial_path(@excitement_page), { :class => "btn btn-default" } %></td>
+	<td><%= link_to 'Testimonial', new_excitement_page_testimonial_path(@excitement_page), { :class => "btn btn-default" } %></td>
 <%else%>
-<td><%= link_to 'Testimonial', edit_excitement_page_testimonial_path(@excitement_page,@excitement_page.testimonial), { :class => "btn btn-default" } %></td>
-<%end%>
-<% unless @excitement_page.community_section %>
-<td><%= link_to 'Community Section', new_excitement_page_community_section_path(@excitement_page), { :class => "btn btn-default" } %></td>
-<%else%>
-<td><%= link_to 'Community Section', edit_excitement_page_community_section_path(@excitement_page,@excitement_page.community_section), { :class => "btn btn-default" } %></td>
+	<td><%= link_to 'Testimonial', edit_excitement_page_testimonial_path(@excitement_page,@excitement_page.testimonial), { :class => "btn btn-default" } %></td>
 <%end%>
 
+<% unless @excitement_page.community_section %>
+	<td><%= link_to 'Community Section', new_excitement_page_community_section_path(@excitement_page), { :class => "btn btn-default" } %></td>
+<%else%>
+	<td><%= link_to 'Community Section', edit_excitement_page_community_section_path(@excitement_page,@excitement_page.community_section), { :class => "btn btn-default" } %></td>
+<%end%>
+<% unless @excitement_page.book_section %>
+<td><%= link_to 'Books Section', new_excitement_page_book_section_path(@excitement_page), { :class => "btn btn-default" } %></td>
+<%else%>
+<td><%= link_to 'Books Section', edit_excitement_page_book_section_path(@excitement_page,@excitement_page.book_section), { :class => "btn btn-default" } %></td>
+<%end%>
+
+<%= link_to 'Books', excitement_page_books_path(@excitement_page), { :class => "btn btn-default" } %>
 
 <%= render 'form' %>
 

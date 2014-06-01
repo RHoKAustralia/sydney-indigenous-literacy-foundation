@@ -1,4 +1,6 @@
-<p id="notice" class="alert alert-success"><%= notice %></p>
+<% if notice %>
+  <p id="notice" class="alert alert-success"><%= notice %></p>
+<% end %>
 
 <h1><%= @excitement_page.title %></h1>
 <p><%= @excitement_page.intro_text %></p>
@@ -16,7 +18,6 @@
     </div> 
 <hr>
 
-
 <div id="testimonials">
     <h2>Who you helped</h2>
     <section class="testimonial-photo">        
@@ -32,9 +33,13 @@
 <hr>
 
 <h2>Books you helped us send</h2>
-<p class="excitement-books">book1</p>
-<p class="excitement-books">book1</p>
-<p class="excitement-books">book1</p>
+<% if @excitement_page.books %>
+  <ul>
+    <% @excitement_page.books.each do |book| %>
+      <li><%= book.name %></li>
+    <% end %>
+  </ul>
+<% end %>
 <hr>
 
 <h2><%= @excitement_page.summary_text %></h2>

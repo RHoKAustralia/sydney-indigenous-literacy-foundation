@@ -1,0 +1,26 @@
+<h1>Listing books</h1>
+
+<% if notice %>
+  <p id="notice" class="alert alert-success"><%= notice %></p>
+<% end %>
+
+<%= link_to 'Back to excitement page', edit_excitement_page_path(@excitement_page), { :class => "btn btn-default" } %>
+<%= link_to 'New', new_excitement_page_book_path, { :class => "btn btn-default glyphicon glyphicon-plus" } %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.name %></td>
+        <td><%= link_to 'Edit', edit_excitement_page_book_path(excitement_page_id: @excitement_page, id: book), { :class => "btn btn-default" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
