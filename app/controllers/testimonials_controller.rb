@@ -36,11 +36,12 @@ class TestimonialsController < ApplicationController
 
     def update
     respond_to do |format|
-      @testimonial.photo.destroy if @testimonial.photo
-      @testimonial.photo = Photo.new
-      @testimonial.photo.raw_data = params[:photo].read if params[:photo]
-
-      if @excitement_page.update(@testimonial)
+      if params[:photo]
+        @testimonial.photo.destroy if @testimonial.photo
+        @testimonial.photo = Photo.new
+        @testimonial.photo.raw_data = params[:photo].read if params[:photo]
+      end
+      if @testimonial.update(testimonial_params)
         format.html { redirect_to @excitement_page, notice: 'Excitement page was successfully updated.' }
         format.json { head :no_content }
       else
@@ -57,7 +58,7 @@ class TestimonialsController < ApplicationController
     end
 
     def set_testimonial
-      @excitement_page = ExcitementPage.find(params[:excitement_page_id])
+      @testimonial = Testimonial.find(params[:id])
     end
 
     def testimonial_params
