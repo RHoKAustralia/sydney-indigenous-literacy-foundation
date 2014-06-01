@@ -36,7 +36,10 @@
 <% if @excitement_page.books %>
   <ul>
     <% @excitement_page.books.each do |book| %>
-      <li><%= book.name %></li>
+      <li>
+        <%= book.name %>
+        <%= image_tag show_image_photo_url(book.photo) ,:size => '260x180' if book.photo %>
+      </li>
     <% end %>
   </ul>
 <% end %>
