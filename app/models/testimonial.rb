@@ -1,5 +1,5 @@
 class Testimonial < ActiveRecord::Base
 
-  belongs_to :imageable, polymorphic: true
+  has_one :photo, as: :imageable 
   belongs_to :excitement_page
 end

@@ -1,3 +1,4 @@
+
 <%= form_for(@excitement_page,:html => { :multipart => true }) do |f| %>
   <% if @excitement_page.errors.any? %>
     <div id="error_explanation">
@@ -20,15 +21,6 @@
     <%= f.text_area :text %>
   </div>
 
-  <div class="field">
-    <%= f.label :testimonial_text %><br>
-    <%= f.text_area :testimonial_text %>
-  </div>
-
-  <div class="field">
-    <%= f.label :photo %><br>
-    <%= file_field_tag :photo %>
-  </div>
 
 
   <div class="actions">

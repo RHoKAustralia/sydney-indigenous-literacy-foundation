@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531075749) do
+ActiveRecord::Schema.define(version: 20140531235027) do
 
   create_table "book_orders", force: true do |t|
     t.datetime "created_at"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20140531075749) do
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "testimonial_text"
   end
 
   create_table "photos", force: true do |t|
@@ -50,7 +49,7 @@ ActiveRecord::Schema.define(version: 20140531075749) do
     t.string   "text_block"
     t.string   "speaker_name"
     t.string   "speaker_role"
-    t.integer  "excitement_space_id"
+    t.integer  "excitement_page_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

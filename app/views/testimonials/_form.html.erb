@@ -1,0 +1,63 @@
+
+<%= form_for([@excitement_page,@testimonial],:html => { :multipart => true }) do |f| %>
+  <% if @testimonial.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@testimonial.errors.count, "error") %> prohibited this testimonial from being saved:</h2>
+
+      <ul>
+      <% @testimonial.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :photo %><br>
+    <%= file_field_tag :photo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :photo_caption %><br>
+    <%= f.text_field :photo_caption %>
+  </div>
+  <div class="field">
+    <%= f.label :text_block %><br>
+    <%= f.text_area :text_block %>
+  </div>
+
+  <div class="field">
+    <%= f.label :speaker_name %><br>
+    <%= f.text_field :speaker_name %>
+  </div>
+  <div class="field">
+    <%= f.label :speaker_role %><br>
+    <%= f.text_field :speaker_role %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit nil, :class => 'btn btn-primary'  %>
+  </div>
+
+
+<% end %>
+
+
+
+
+
+
+<script type="text/javascript">
+  jQuery(function($) {
+    var showUpload = $('#show-upload');
+    var upload = $('#upload').hide();
+
+    showUpload.click(function() {
+      upload.show();
+      showUpload.hide();
+    })
+  });
+</script>
