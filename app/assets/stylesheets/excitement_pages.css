@@ -7,12 +7,13 @@ a:hover {
     text-decoration: none;
 }
 
-#testimonials {    
+
+#testimonials, #community {    
   position: relative;
-  min-height:200px; 
+  min-height:300px; 
 }
 
-.testimonial-photo, .testimonial-text {
+.testimonial-photo, .testimonial-text, .community-map, .community-photo {
     width:40%;
     position:absolute;
     display: inline-block;
@@ -20,14 +21,20 @@ a:hover {
     text-align: center;
 }
 
-.testimonial-photo {
-    left:10%;
+.testimonial-photo, .community-map {
+    left:12%;
 }
 
-.testimonial-text {   
-    right:13%;
+.testimonial-text, .community-photo {   
+    right:9%;
 }
 
+.community-text {
+
+    position:absolute;
+    width:100%;
+    bottom:0;
+}
 .excitement-books {
 
     display:inline;
