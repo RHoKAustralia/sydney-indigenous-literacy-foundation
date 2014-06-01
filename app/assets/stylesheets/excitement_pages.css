@@ -12,7 +12,7 @@ a:hover {
 
     height:180px;
     width:400px;
-    left: 10%;
+    left: 3%;
 
 
 }
@@ -29,6 +29,11 @@ a:hover {
     display: inline-block;
     height:100%;
     text-align: center;
+}
+
+.community-photo {
+
+    text-align: left;
 }
 
 .testimonial-photo, .community-map {
@@ -49,6 +54,16 @@ a:hover {
 
     display:inline;
 
+}
+
+.book-list-container {
+
+    text-align: center;
+}
+
+.book-container {
+
+    margin-left: 8%;
 }
 
 .donate {
