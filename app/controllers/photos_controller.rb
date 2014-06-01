@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
 
-  def show
+  def show_image
     puts "params #{params}"
     photo = Photo.find(params[:id])
     puts "HERERRERERRERERER************************"

@@ -34,12 +34,10 @@ class ExcitementPagesController < ApplicationController
 
     puts "**************************************   #{params}"
     @excitement_page = ExcitementPage.new(excitement_page_params)
-    @excitement_page.photo = Photo.new
-    @excitement_page.photo.raw_data = params[:photo].read if params[:photo]
 
     respond_to do |format|
-      if @excitement_page.save && @excitement_page.photo.save!
-        format.html { redirect_to edit_excitement_page_path(@excitement_page), notice: 'Excitement page was successfully created.' }
+      if @excitement_page.save
+        format.html { redirect_to @excitement_page, notice: 'Excitement page was successfully created.' }
         format.json { render action: 'show', status: :created, location: @excitement_page }
       else
         format.html { render action: 'new' }
@@ -92,6 +90,6 @@ class ExcitementPagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def excitement_page_params
-      params.require(:excitement_page).permit(:title, :text)
+      params.require(:excitement_page).permit(:title, :intro_text,:summary_text)
     end
 end

@@ -15,7 +15,11 @@ IndigenousLiteracyFoundation::Application.routes.draw do
   get 'dashboard' => 'dashboard#index'
 
   resources :communities
-  resources :photos
+  resources :photos do
+      member do
+      get 'show_image'
+    end
+  end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

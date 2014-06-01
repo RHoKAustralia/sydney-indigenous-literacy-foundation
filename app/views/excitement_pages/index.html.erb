@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Text</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,7 +14,6 @@
     <% @excitement_pages.each do |excitement_page| %>
       <tr>
         <td><%= excitement_page.title %></td>
-        <td><%= excitement_page.text %></td>
         <td><%= link_to 'Show', excitement_page, { :class => "btn btn-default" } %></td>
         <td><%= link_to 'Edit', edit_excitement_page_path(excitement_page), { :class => "btn btn-default" } %></td>
         <td><%= link_to 'Email', email_list_excitement_page_path(excitement_page), { :class => "btn btn-default" } %></td>

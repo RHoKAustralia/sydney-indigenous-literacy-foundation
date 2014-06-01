@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531235027) do
+ActiveRecord::Schema.define(version: 20140601003929) do
 
   create_table "book_orders", force: true do |t|
     t.datetime "created_at"
@@ -24,14 +24,14 @@ ActiveRecord::Schema.define(version: 20140531235027) do
     t.string   "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description"
   end
 
   create_table "excitement_pages", force: true do |t|
     t.string   "title"
-    t.text     "text"
+    t.text     "intro_text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "summary_text"
   end
 
   create_table "photos", force: true do |t|

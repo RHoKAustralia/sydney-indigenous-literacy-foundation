@@ -4,7 +4,7 @@
 
 <h1><%= @excitement_page.title %></h1>
 
-<p><%= @excitement_page.text %></p>
+<p><%= @excitement_page.intro_text %></p>
 
 <hr>
 
@@ -23,7 +23,7 @@
 <h2>Who you helped</h2>
 <p>
   <strong>Testimonial image:</strong>
-<%= image_tag photo_url(@excitement_page.testimonial.photo) ,:size => '260x180'%>
+<%= image_tag show_image_photo_url(@excitement_page.testimonial.photo) ,:size => '260x180'%>
 <p>
 <p><%= @excitement_page.testimonial.photo_caption %></p>
 
