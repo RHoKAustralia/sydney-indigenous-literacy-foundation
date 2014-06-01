@@ -5,7 +5,6 @@ class CreateCommunities < ActiveRecord::Migration
       t.string :accountid
       t.string :latitude
       t.string :longitude
-      t.string :state
       t.references :community_profile
 
       t.timestamps
