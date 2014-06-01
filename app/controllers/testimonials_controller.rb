@@ -42,7 +42,7 @@ class TestimonialsController < ApplicationController
         @testimonial.photo.raw_data = params[:photo].read if params[:photo]
       end
       if @testimonial.update(testimonial_params)
-        format.html { redirect_to @excitement_page, notice: 'Excitement page was successfully updated.' }
+        format.html { redirect_to edit_excitement_page_path(@excitement_page), notice: 'Testimonial was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

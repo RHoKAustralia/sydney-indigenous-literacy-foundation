@@ -3,6 +3,7 @@ IndigenousLiteracyFoundation::Application.routes.draw do
   root :to => "excitement_pages#index"
   resources :excitement_pages do
     resources :testimonials  
+    resources :community_sections  
     member do
       get 'email_list'
       post 'send_email'

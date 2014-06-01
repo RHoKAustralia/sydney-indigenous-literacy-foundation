@@ -1,4 +1,4 @@
-<%= form_for(@community_profile) do |f| %>
+<%= form_for(@community_profile, :html => { :multipart => true }) do |f| %>
   <% if @community_profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@community_profile.errors.count, "error") %> prohibited this community_profile from being saved:</h2>
@@ -15,6 +15,12 @@
     <%= f.label :bio %><br>
     <%= f.text_area :bio, :cols => "100", :rows => "10" %>
   </div>
+
+  <div class="field">
+    <%= f.label :photo %><br>
+    <%= file_field_tag :photo %>
+  </div>
+
   <div class="actions">
     <%= f.submit 'Save', :class => "btn btn-default" %>
     <%= link_to 'Cancel', @community_profile, :class => "btn btn-default" %>
