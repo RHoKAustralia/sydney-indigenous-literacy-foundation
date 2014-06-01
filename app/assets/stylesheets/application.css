@@ -13,7 +13,6 @@
  */
 #communities {
   padding: 5px;
-  float: left; 
 }
 
 #map, #map-canvas { height: 500px; width: 600px; float: left;}
