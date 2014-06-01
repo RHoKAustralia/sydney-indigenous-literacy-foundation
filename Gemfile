@@ -19,6 +19,7 @@ gem 'capistrano'
 # Use unicorn as the web server
 gem 'unicorn'
 gem 'uuid'
+
 group :doc do
   gem 'sdoc', require: false
 end
