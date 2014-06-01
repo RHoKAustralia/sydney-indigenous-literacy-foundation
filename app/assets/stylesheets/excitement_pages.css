@@ -1,16 +1,40 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
-
 
 #main {
-
     text-align: center;
 }
 
-.donate {
+a:hover {
+    text-decoration: none;
+}
 
+#testimonials {    
+  position: relative;
+  min-height:200px; 
+}
+
+.testimonial-photo, .testimonial-text {
+    width:40%;
+    position:absolute;
+    display: inline-block;
+    height:100%;
+    text-align: center;
+}
+
+.testimonial-photo {
+    left:10%;
+}
+
+.testimonial-text {   
+    right:13%;
+}
+
+.excitement-books {
+
+    display:inline;
+
+}
+
+.donate {
     font-family: 'DINBold', Verdana, Arial, Sans-Serif;
     font: bold 14px/16px Arial, Helvetica, sans-serif;
     padding:4px 19px;
@@ -19,15 +43,12 @@
     color:#492922;
     border-radius:4px;
     -moz-border-radius:4px;
-    -webkit-border-radius:4px;
- 
-   
+    -webkit-border-radius:4px;    
 }
 
 .donate:hover {
 
     color:#FFF;
-    text-decoration:none;
     background:#dc7c27;
 
 }
