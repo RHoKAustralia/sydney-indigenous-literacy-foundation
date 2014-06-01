@@ -8,11 +8,17 @@ class CommunitySectionsController < ApplicationController
   # GET /excitement_pages/new
   def new
 
+    @communities = Community.order(:name).all
     puts "**************************************   #{params}"
     @community_section = CommunitySection.new
   end
 
+
+
+ 
     def create
+    
+    @communities = Community.order(:name).all
 
     puts "**************************************   #{params}"
     @community_section = CommunitySection.new(community_section_params)
@@ -32,9 +38,15 @@ class CommunitySectionsController < ApplicationController
   end
 
   def edit
+
+    @communities = Community.order(:name).all
   end
 
     def update
+
+    puts "**************************************   #{params}"
+
+    @communities = Community.order(:name).all
     respond_to do |format|
       if params[:photo]
         @community_section.photo.destroy if @community_section.photo
@@ -62,7 +74,7 @@ class CommunitySectionsController < ApplicationController
     end
 
     def community_section_params
-      params.require(:community_section).permit(:community_text)
+      params.require(:community_section).permit(:community_text,:community_id)
     end
 
 
