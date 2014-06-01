@@ -23,15 +23,21 @@
 
 <div id="demographics" style="width:100%">
   <div id="map"></div>
+  
   <div id="communities">
-    <%= @communities.length %> communities
-    <ul>
-      <% @communities.each_with_index do |community, index| %>
-        <li><%= link_to community.name, 'javascript:void(0);', :onclick=>"infoOpen('#{index}');" %></li>
-      <% end %>
-    </ul>
+    <% if @communities.length == 0 %>
+      No communities loaded yet <%= link_to 'Load Communities', community_profiles_load_communities_path, :class => "btn btn-default" %>
+    <% else %>
+      <%= @communities.length %> communities
+      <ul>
+        <% @communities.each_with_index do |community, index| %>
+          <li><%= link_to community.name, 'javascript:void(0);', :onclick=>"infoOpen('#{index}');" %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>
+
 <script type="text/javascript">
   $(function() {
     var gmarkers = [];
