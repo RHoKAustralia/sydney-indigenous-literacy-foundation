@@ -7,8 +7,9 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg' , require: false
 end
+
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'

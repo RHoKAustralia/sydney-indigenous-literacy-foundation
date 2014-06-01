@@ -4,10 +4,10 @@ IndigenousLiteracyFoundation::Application.routes.draw do
   resources :excitement_pages do
     resources :testimonials  
     resources :community_sections  
+    resources :book_sections  
     member do
       get 'email_list'
       post 'send_email'
-      get 'show_image'
     end
   end
 
