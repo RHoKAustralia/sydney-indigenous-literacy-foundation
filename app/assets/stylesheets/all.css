@@ -22,7 +22,7 @@
 select, input, textarea {background:#fff}
 body{
   margin:0;
-  color:#73534b;
+  color:#73534b !important;
   font:11px Verdana, Arial, Helvetica, sans-serif;
   background:#fff url(/assets/bg-body3.jpg) repeat-x center top;
   min-width:1003px;
