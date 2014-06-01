@@ -8,8 +8,8 @@
 <div id="demographics" style="width:100%">
 
 <% unless @community.latitude.nil? || @community.longitude.nil? %>
-	<div id="map"></div>
-	
+	<div id="map-canvas"></div>
+
 	<script type="text/javascript">
     $(function() {
   	  function initialize() {
@@ -20,7 +20,7 @@
   	      center: new google.maps.LatLng(<%= @community.latitude %>,<%= @community.longitude %>),
   	      zoom: 6
   	    };
-  	    var map = new google.maps.Map(document.getElementById("map"),
+  	    var map = new google.maps.Map(document.getElementById("map-canvas"),
   	        mapOptions);
   	    var infowindow = new google.maps.InfoWindow({
   	        content: "<%= @community.name %>"
@@ -34,8 +34,20 @@
   	      infowindow.open(map,marker);
   	    });
   	  }
-  	  google.maps.event.addDomListener(window, 'load', initialize);
+  	  // google.maps.event.addDomListener(window, 'load', initialize);
     });
+
+	  // google.maps.event.addDomListener(window, 'load', initialize);
+
+		function loadScript() {
+		  var script = document.createElement('script');
+		  script.type = 'text/javascript';
+		  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=<%= ENV['GMAPS_API_KEY'] %>&' +
+		      'callback=initialize';
+		  document.body.appendChild(script);
+		}
+
+		window.onload = loadScript;
 	</script>
 <% end %>
 

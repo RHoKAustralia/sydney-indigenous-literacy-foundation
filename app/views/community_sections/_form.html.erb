@@ -14,8 +14,9 @@
 
 
   <div class="field">
+    <% chosen_id = @community_section.community ? @community_section.community.id : @communities.first.id %>
     <%= f.label :community_id %><br>
-    <%= f.select :community_id,options_from_collection_for_select(@communities,:id,:name) %>
+    <%= f.select :community_id,options_from_collection_for_select(@communities,:id,:name,chosen_id) %>
   </div>
 
 
