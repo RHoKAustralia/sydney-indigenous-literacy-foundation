@@ -1,8 +1,8 @@
 class CommunitiesController < ApplicationController
 
   def show
+    @community = Community.find params[:id]
     client = ILF::RestForceClient.new
-    @community = client.community params[:id]
     @book_orders = client.book_orders(@community)
   end
 end

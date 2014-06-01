@@ -32,7 +32,7 @@ module ILF
     def book_orders(community)
       book_orders = @client.query("SELECT o.Id, o.AccountId, o.CloseDate, a.Name
         FROM Opportunity o, o.Account a
-        WHERE o.Remote_Community__c = '#{community.Id}'
+        WHERE o.Remote_Community__c = '#{community.accountid}'
         ORDER BY o.CloseDate DESC")
     end
 

@@ -2,12 +2,12 @@
 
 <p>
   <strong>Community:</strong>
-  <%= @community.Name %>
+  <%= @community.name %>
 </p>
 
 <div id="demographics" style="width:100%">
 
-<% unless @community.Geolocation__c.latitude.nil? || @community.Geolocation__c.longitude.nil? %>
+<% unless @community.latitude.nil? || @community.longitude.nil? %>
 	<div id="map"></div>
 	
 	<script type="text/javascript">
@@ -17,18 +17,18 @@
   	    var mapOptions = {
   	      width: '400px',
   	      height: '300px',
-  	      center: new google.maps.LatLng(<%= @community.Geolocation__c.latitude %>,<%= @community.Geolocation__c.longitude %>),
+  	      center: new google.maps.LatLng(<%= @community.latitude %>,<%= @community.longitude %>),
   	      zoom: 6
   	    };
   	    var map = new google.maps.Map(document.getElementById("map"),
   	        mapOptions);
   	    var infowindow = new google.maps.InfoWindow({
-  	        content: "<%= @community.Name %>"
+  	        content: "<%= @community.name %>"
   	    });
   	    var marker = new google.maps.Marker({
-  	          position: new google.maps.LatLng(<%= @community.Geolocation__c.latitude %>,<%= @community.Geolocation__c.longitude %>),
+  	          position: new google.maps.LatLng(<%= @community.latitude %>,<%= @community.longitude %>),
   	          map: map,
-  	          title: "<%= @community.Name %>"
+  	          title: "<%= @community.name %>"
   	      });
   	    google.maps.event.addListener(marker, 'click', function() {
   	      infowindow.open(map,marker);

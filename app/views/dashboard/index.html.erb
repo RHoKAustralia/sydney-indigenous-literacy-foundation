@@ -27,7 +27,7 @@
     <%= @communities.length %> communities
     <ul>
       <% @communities.each_with_index do |community, index| %>
-        <li><%= link_to community.Name, 'javascript:void(0);', :onclick=>"infoOpen('#{index}');" %></li>
+        <li><%= link_to community.name, 'javascript:void(0);', :onclick=>"infoOpen('#{index}');" %></li>
       <% end %>
     </ul>
   </div>
@@ -45,14 +45,14 @@
       var map = new google.maps.Map(document.getElementById("map"),
           mapOptions);
       <% @communities.each_with_index do |community, index| %>
-        <% if ! community.Geolocation__c.nil? && ! community.Geolocation__c.nil? %>
+        <% if community.latitude && community.longitude %>
   	      var infowindow_<%= index %> = new google.maps.InfoWindow({
-  	          content: '<%= link_to community.Name, community_path(community.Id) %>'
+  	          content: '<%= link_to community.name, community_path(community.id) %>'
   	      });
   	      var marker_<%= index %> = new google.maps.Marker({
-  	            position: new google.maps.LatLng(<%= community.Geolocation__c.latitude %>,<%= community.Geolocation__c.longitude %>),
+  	            position: new google.maps.LatLng(<%= community.latitude %>,<%= community.longitude %>),
   	            map: map,
-  	            title: "<%= community.Name %>"
+  	            title: "<%= community.name %>"
   	        });
   	      gmarkers["<%= index %>"] = marker_<%= index %>;
   	      google.maps.event.addListener(marker_<%= index %>, 'click', function() {
