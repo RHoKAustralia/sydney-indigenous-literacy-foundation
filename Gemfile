@@ -2,14 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails'
 
-group :development, :test do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg' , require: false
-end
-
+gem 'sqlite3'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
@@ -21,6 +14,7 @@ gem 'restforce'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => "bootstrap3"
+gem 'capistrano'
 
 group :doc do
   gem 'sdoc', require: false
