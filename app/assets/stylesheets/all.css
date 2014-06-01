@@ -599,7 +599,7 @@ fieldset{
 #content div{
   line-height:16px;
 }
-#content h2{
+#content, #main h2{
   font:16px/18px DINBold, Verdana, Arial, Helvetica, sans-serif;
   color:#b8862c;
   margin:0 0 16px;
