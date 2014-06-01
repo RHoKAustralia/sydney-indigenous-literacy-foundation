@@ -5,7 +5,6 @@ module ILF
     end
 
     def communities
-      # FILTER OUT NULL GEOLOCATIONS - will not show any communities that are above the equator !
       @client.query("SELECT Id
         , Name
         , Geolocation__c
@@ -13,7 +12,6 @@ module ILF
         , Geolocation__longitude__s 
         FROM Account 
         WHERE Online_Ordering_Category__c = 'Remote Community' 
-        AND Geolocation__latitude__s < 0
         ORDER BY Name")
     end
 
@@ -34,7 +32,7 @@ module ILF
     def book_orders(community)
       book_orders = @client.query("SELECT o.Id, o.AccountId, o.CloseDate, a.Name
         FROM Opportunity o, o.Account a
-        WHERE o.Remote_Community__c = '#{community.Id}'
+        WHERE o.Remote_Community__c = '#{community.accountid}'
         ORDER BY o.CloseDate DESC")
     end
 

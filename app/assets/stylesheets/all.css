@@ -120,11 +120,19 @@ fieldset{
   padding:0 31px 17px 22px;
   overflow:hidden;
 }
+.gauge-container {
+  clear: both;
+  max-width: 420px;
+  min-height: 50px;
+}
+.progress-container {
+  clear: both;
+  max-width: 420px;
+  margin-top: 10px;
+}
 .gauge{
   list-style:none;
   padding:0;
-  margin:80px 0 0;
-  float:right;
   background:#f7e3d0;
   border-radius: 10px;
   -moz-border-radius:10px;
