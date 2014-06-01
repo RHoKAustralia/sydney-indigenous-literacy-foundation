@@ -1,6 +1,9 @@
 IndigenousLiteracyFoundation::Application.routes.draw do
 
-  root :to => "excitement_pages#index"
+  root :to => "dashboard#index"
+
+  get 'dashboard' => 'dashboard#index'
+  
   resources :excitement_pages do
     resources :testimonials
     resources :community_sections
@@ -12,8 +15,6 @@ IndigenousLiteracyFoundation::Application.routes.draw do
     resources :books    
     resources :book_sections
   end
-
-  get 'dashboard' => 'dashboard#index'
 
   resources :communities
   resources :photos do

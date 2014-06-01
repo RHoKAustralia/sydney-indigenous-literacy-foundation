@@ -181,5 +181,3 @@ DEPENDENCIES
   turbolinks
   twitter-bootstrap-rails!
   uglifier
-  unicorn
-  uuid
