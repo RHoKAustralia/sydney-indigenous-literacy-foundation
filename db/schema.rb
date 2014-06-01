@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140601022931) do
     t.string   "accountid"
     t.string   "latitude"
     t.string   "longitude"
+    t.string   "state"
     t.integer  "community_profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"

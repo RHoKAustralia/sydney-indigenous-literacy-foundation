@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   def index
-  	@communities = Community.all
+  	@communities = Community.order(:state, :name)
 
     today = Time.now
     start_of_year = today.beginning_of_year

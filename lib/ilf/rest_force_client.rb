@@ -9,7 +9,8 @@ module ILF
         , Name
         , Geolocation__c
         , Geolocation__latitude__s
-        , Geolocation__longitude__s 
+        , Geolocation__longitude__s
+        , BillingState
         FROM Account 
         WHERE Online_Ordering_Category__c = 'Remote Community' 
         ORDER BY Name")
@@ -23,10 +24,10 @@ module ILF
         AND CloseDate < #{to.strftime("%Y-%m-%d")}").first.expr0
     end
 
-    def community(id)
-      @client.query("SELECT Id, Name, Geolocation__c, Geolocation__latitude__s, Geolocation__longitude__s 
+    def community(community)
+      @client.query("SELECT Id, Name, Geolocation__c, Geolocation__latitude__s, Geolocation__longitude__s, BillingState
         FROM Account 
-        WHERE Id = '#{id}'").first
+        WHERE Id = '#{community.accountid}'").first
     end
 
     def book_orders(community)

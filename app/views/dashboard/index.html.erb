@@ -25,6 +25,7 @@
   <div id="map"></div>
   
   <div id="communities">
+
     <% if @communities.length == 0 %>
       No communities loaded yet <%= link_to 'Load Communities', community_profiles_load_communities_path, :class => "btn btn-default" %>
     <% else %>

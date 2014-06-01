@@ -6,9 +6,9 @@ module ILF
       communities.each do |community|
         db_community = Community.find_by(accountid: community.Id)
         if db_community
-          db_community.update_attributes(name: community.Name, accountid: community.Id, latitude: community.Geolocation__c.try(:latitude), longitude: community.Geolocation__c.try(:longitude))
+          db_community.update_attributes(name: community.Name, accountid: community.Id, latitude: community.Geolocation__c.try(:latitude), longitude: community.Geolocation__c.try(:longitude), state: community.BillingState)
         else
-          db_community = Community.create(name: community.Name, accountid: community.Id, latitude: community.Geolocation__c.try(:latitude), longitude: community.Geolocation__c.try(:longitude))
+          db_community = Community.create(name: community.Name, accountid: community.Id, latitude: community.Geolocation__c.try(:latitude), longitude: community.Geolocation__c.try(:longitude), state: community.BillingState)
         end
 
         community_profile = CommunityProfile.find_by(community_id: db_community.id)
