@@ -6,9 +6,10 @@
 
 <div id="community">
     <h2>Where we helped @community.name </h2>
-    <section class="community-map">
-        <p>Map goes here</p>
-    </section>    
+   <!--  <div id="map-canvas"></div> -->
+   <!--  <section class="community-map">
+        <p><%= @excitement_page.community_section.community %></p>
+    </section> -->    
     <section class="community-photo">
         <%= image_tag show_image_photo_url(@excitement_page.community_section.photo) ,:size => '260x180'%>
     </section>    
@@ -46,3 +47,47 @@
 
 <%= link_to 'Edit', edit_excitement_page_path(@excitement_page), { :class => "btn btn-default" } %> |
 <%= link_to 'Back', excitement_pages_path, { :class => "btn btn-default" } %>
+
+<% unless @excitement_page.community_section.community.latitude.nil? || @excitement_page.community_section.community.longitude.nil? %>
+    
+
+    <script type="text/javascript">
+    $(function() {
+      function initialize() {
+
+        var mapOptions = {
+          width: '400px',
+          height: '300px',
+          center: new google.maps.LatLng(<%= @excitement_page.community_section.community.latitude %>,<%= @excitement_page.community_section.community.longitude %>),
+          zoom: 6
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+        var infowindow = new google.maps.InfoWindow({
+            content: "<%= @excitement_page.community_section.community.name %>"
+        });
+        var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(<%= @excitement_page.community_section.community.latitude %>,<%= @excitement_page.community_section.community.longitude %>),
+              map: map,
+              title: "<%= @excitement_page.community_section.community.name %>"
+          });
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
+        });
+      }
+      // google.maps.event.addDomListener(window, 'load', initialize);
+    });
+
+      // google.maps.event.addDomListener(window, 'load', initialize);
+
+        function loadScript() {
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=<%= ENV['GMAPS_API_KEY'] %>&' +
+              'callback=initialize';
+          document.body.appendChild(script);
+        }
+
+        window.onload = loadScript;
+    </script>
+<% end %>
