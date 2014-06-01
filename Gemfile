@@ -16,6 +16,9 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => "bootstrap3"
 gem 'capistrano'
 
+# Use unicorn as the web server
+gem 'unicorn'
+
 group :doc do
   gem 'sdoc', require: false
 end
