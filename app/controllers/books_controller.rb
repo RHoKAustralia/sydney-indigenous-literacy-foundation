@@ -15,6 +15,7 @@ class BooksController < ApplicationController
     @book.excitement_page = @excitement_page
    
     if @book.save
+      @book.photo = Photo.create(raw_data: params[:photo].read, imageable_type: 'Book', imageable_id: @book.id)
       redirect_to excitement_page_books_path(excitement_page_id: @excitement_page), notice: 'Book was successfully created.'
     else
       render action: 'new'
@@ -25,6 +26,16 @@ class BooksController < ApplicationController
   end
 
   def update
+    if params[:photo]
+      photo = Photo.find_by(imageable_type: 'Book', imageable_id: @book.id)
+      if photo
+        photo.update_attributes(raw_data: params[:photo].read)
+      else
+        photo = Photo.create(raw_data: params[:photo].read, imageable_type: 'Book', imageable_id: @book.id)
+      end
+      @book.photo = photo
+    end
+
     if @book.update(book_params)
       redirect_to excitement_page_books_path(excitement_page_id: @excitement_page), notice: 'Book was successfully updated.'
     else

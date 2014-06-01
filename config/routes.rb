@@ -13,7 +13,6 @@ IndigenousLiteracyFoundation::Application.routes.draw do
       get 'show_image'
     end
     resources :books    
-    resources :book_sections
   end
 
   resources :communities
