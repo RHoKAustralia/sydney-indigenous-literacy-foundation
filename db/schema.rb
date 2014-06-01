@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140531235027) do
     t.string   "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
   end
 
   create_table "excitement_pages", force: true do |t|
