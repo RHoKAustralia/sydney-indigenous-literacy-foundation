@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601011653) do
+ActiveRecord::Schema.define(version: 20140601020801) do
 
   create_table "book_orders", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "books", force: true do |t|
+    t.integer  "excitement_page_id"
+    t.string   "name"
+    t.string   "isbn"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "books", ["excitement_page_id"], name: "index_books_on_excitement_page_id"
 
   create_table "communities", force: true do |t|
     t.string   "name"

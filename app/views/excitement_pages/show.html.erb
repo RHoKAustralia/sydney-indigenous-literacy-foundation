@@ -14,23 +14,29 @@
 <hr>
 
 <h2>Who you helped</h2>
-<div id="testimonials">
-    <section class="testimonial-photo">        
-        <%= image_tag show_image_photo_url(@excitement_page.testimonial.photo) ,:size => '260x180'%>
-        <p><%= @excitement_page.testimonial.photo_caption %></p>
-    </section>
-    <section class="testimonial-text">
-        <p><%= @excitement_page.testimonial.text_block %></p>
-        <span>- <%= @excitement_page.testimonial.speaker_name %>,</span>
-        <p><%= @excitement_page.testimonial.speaker_role %></p>
-    </section>
-</div> 
+<% if @excitement_page.testimonial %>
+    <div id="testimonials">
+        <section class="testimonial-photo">        
+            <%= image_tag show_image_photo_url(@excitement_page.testimonial.photo) ,:size => '260x180'%>
+            <p><%= @excitement_page.testimonial.photo_caption %></p>
+        </section>
+        <section class="testimonial-text">
+            <p><%= @excitement_page.testimonial.text_block %></p>
+            <span>- <%= @excitement_page.testimonial.speaker_name %>,</span>
+            <p><%= @excitement_page.testimonial.speaker_role %></p>
+        </section>
+    </div>
+<% end %>
 <hr>
 
 <h2>Books you helped us send</h2>
-<p class="excitement-books">book1</p>
-<p class="excitement-books">book1</p>
-<p class="excitement-books">book1</p>
+<% if @excitement_page.books %>
+  <ul>
+    <% @excitement_page.books.each do |book| %>
+      <li><%= book.name %></li>
+    <% end %>
+  </ul>
+<% end %>
 <hr>
 
 <h2>We couldn't do this without you</h2>
