@@ -35,7 +35,7 @@
     <% @excitement_page.books.each do |book| %>
       <div class="book-container">
         <div class="book-image"><%= image_tag show_image_photo_url(book.photo) ,:size => '260x180' if book.photo %></div>
-        <div class="book-name"><%= book.name %></div>
+        <div class="book-name"><strong><%= book.name %></strong></div>
       </div>
     <% end %>
   </div>
